@@ -41,6 +41,10 @@
   .menu-mobile {
     display: none;
   }
+  
+  .menu-mobile-content {
+    display: none;
+  } 
 
   /* MAIN */
   main {

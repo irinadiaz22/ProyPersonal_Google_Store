@@ -64,10 +64,23 @@ header nav {
 }
 
 .menu-mobile {
+    background: none;
     display: block; 
-    list-style: none;
+    cursor: pointer;
 }
-
+.menu-mobile-content {
+    position: fixed;
+    top: 0px; /* Ajusta según el tamaño del header */
+    right: -100%; /* Fuera de la pantalla inicialmente */
+    width: 100px;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    transition: 0.3s;
+}
+.menu-mobile-content.active {
+    right: 0; /* Muestra el menú */
+}
 /* ============================================================
    3. CUERPO Y PRODUCTO - DHANA CORREDOR / IRINA DIAZ
    ============================================================ */

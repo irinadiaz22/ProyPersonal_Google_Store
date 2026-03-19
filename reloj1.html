@@ -22,7 +22,7 @@
       </div>
       <ul class="nav-links">
         <li><a href="#">Phones</a></li>
-        <li><a href="index.html">Earbuds</a></li>
+        <li><a href="#">Earbuds</a></li>
         <li><a href="reloj1.html">Watches</a></li>
         <li><a href="#">Smart Home</a></li>
         <li><a href="#">Accesories</a></li>
@@ -44,11 +44,26 @@
               <img src="./img/icons/Avatar.svg" alt="User,Usuario"></a></li>
         </ul>
       </div>
-      <ul class="menu-mobile">
-        <li><img src="./img/icons/menu-icon1.svg" alt="menu"></li>
-      </ul>
+
+      <!-- BOTON MENU -->
+      <button class="menu-mobile">
+        <img src="./img/icons/menu-icon1.svg" alt="menu">
+      </button>
     </nav>
+
+    <div class="menu-mobile-content">
+      <ul>
+        <li><a href="#">Phones</a></li>
+        <li><a href="index.html">Earbuds</a></li>
+        <li><a href="reloj1.html">Watches</a></li>
+        <li><a href="#">Smart Home</a></li>
+        <li><a href="#">Accesories</a></li>
+        <li><a href="#">Subscriptions</a></li>
+      </ul>
+    </div>
+
   </header>
+
 
   <main>
     <section>
@@ -69,7 +84,7 @@
       </div>
       <h1>Smart Watch Pro</h1>
       <p>Stay Connected</p>
-      <h2>180 € <span class="priceWatch">180 €</span></h2>
+      <h2>180 € <span class="priceWatch"></span></h2>
       <hr>
 
     </section>
@@ -93,8 +108,6 @@
             <span class="color yellow"></span>
           </label>
         </fieldset>
-
-        <h2>180 €</h2>
         <hr> <br>
         <select name="Cantidad" id="cantidad" aria-label="Seleccionar cantidad">
           <option value="1">1</option>
@@ -102,7 +115,7 @@
           <option value="3">3</option>
         </select>
 
-        <button type="submit">Add to Cart</button>
+        <button class="addCompra" type="submit">Add to Cart</button>
       </form>
 
       <footer class="delivery">

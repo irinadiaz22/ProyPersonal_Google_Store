@@ -1,3 +1,11 @@
+//Menu desplegable
+const menuBtn = document.querySelector(".menu-mobile");
+const menuMobile = document.querySelector(".menu-mobile-content");
+
+menuBtn.addEventListener("click", () => {
+    menuMobile.classList.toggle("active");
+});
+
 //Seleccion de imagenes principales y miniaturas
 const mainImage = document.querySelector(".image-principal img");
 const thumbnails = document.querySelectorAll(".galeria-images img");
@@ -56,7 +64,7 @@ else if (document.getElementById("priceWatch")) {
 
 
 //boton de compra
-const button = document.querySelector("button");
+const button = document.querySelector(".addCompra");
     
 button.addEventListener("click", (e) => {
     e.preventDefault();
