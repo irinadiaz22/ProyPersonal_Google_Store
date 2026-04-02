@@ -4,12 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //Variables globales
-const colors = document.querySelectorAll('input[name="color"]');
 const mainImage = document.querySelector(".image-principal img");
 const thumbnails = document.querySelectorAll(".galeria-images img");
 
-let selectedColor;   // = colors[0].value;
-//thumbnails[0].classList.add("active");
+let selectedColor;   
 
 //Menu desplegable
 const menuBtn = document.querySelector(".menu-mobile");
@@ -23,11 +21,11 @@ menuBtn.addEventListener("click", () => {
 const producto = document.querySelector("h1").textContent;
 
 //seleccionar color del producto e imagenes si es reloj o earbuds
+const colors = document.querySelectorAll('input[name="color"]');
+
 colors.forEach(color => {
     color.addEventListener("change", () => {
         selectedColor = color.value;
-        console.log("Color seleccionado:", selectedColor);
-        console.log(color);
 
         // Cambiar imagen principal según el color seleccionado
         if (producto.includes("Pixel Buds Pro")) {
@@ -49,7 +47,6 @@ thumbnails.forEach(img => {
             thumbnails.forEach(i => i.classList.remove("active"));
             // agregar activo
             img.classList.add("active");
-            console.log("color seleccionado:", selectedColor);
         }
         else {
             if (img.src.includes("pink")) {
@@ -59,71 +56,17 @@ thumbnails.forEach(img => {
             } else if (img.src.includes("black")) {
                 selectedColor = "black";
             }
+
+            const colorInput = document.querySelector(`input[name="color"][value="${selectedColor}"]`);
+            if (colorInput) {
+                colorInput.checked = true;
+            }
+
             img.src = `../img/smartwatch/smartwatch_${selectedColor}.png`;
             mainImage.src = img.src;
-            console.log("color seleccionado:", selectedColor);
         }
 
     });
 });
-
-
-
-//cantidad de productos
-const quantity = document.getElementById("cantidad");
-quantity.addEventListener("change", () => {
-    const qty = parseInt(quantity.value);
-    if (isNaN(qty) || qty < 1) {
-        quantity.value = 1;
-    } else {
-        console.log("Cantidad seleccionada:", qty);
-    }
-});
-
-//Seleccionar precio del producto
-let currentPrice = "";
-currentPrice = document.querySelector("h2").textContent;
-
-if (document.getElementById("priceEarbuds")) {
-    currentPrice = priceEarbuds.textContent;
-    producto = "Google Pixel Buds Pro";
-    console.log("Precio de los Google Pixel Buds Pro:", currentPrice);
-}
-else if (document.getElementById("priceWatch")) {
-    currentPrice = priceWatch.textContent;
-    producto = "Reloj Pro";
-    console.log("Precio del Reloj Pro:", currentPrice);
-}
-
-
-//boton de compra
-const button = document.querySelector(".addCompra");
-
-button.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    if (selectedColor === null) {
-        alert("Por favor, seleccione un color antes de comprar.");
-        return;
-    }
-
-    console.log("Producto seleccionado:", producto);
-    console.log("Botón de compra presionado");
-    console.log("Color seleccionado:", selectedColor);
-    console.log("Cantidad seleccionada:", quantity.value);
-    console.log("Precio unitario:", currentPrice);
-    CalcultarTotal();
-
-    console.log("Compra realizada con éxito");
-    alert("¡Gracias por tu compra! Has comprado " + quantity.value + " " + producto + " en color " + selectedColor + ". Total a pagar: " + (quantity.value * parseFloat(currentPrice.replace("€", "").trim())).toFixed(2) + " €");
-});
-
-
-function CalcultarTotal() {
-    const qty = parseInt(quantity.value);
-    const price = parseFloat(currentPrice.replace("€", "").trim());
-    const total = qty * price;
-    console.log("Total a pagar por " + producto + ":", total + " €");
-}
 
 
